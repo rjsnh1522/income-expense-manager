@@ -1,0 +1,34 @@
+<div id="addNewExpense">
+<h1 class="headerTitle">Add New  Expense</h1>
+    <div class="row">
+    
+    <div class="col-xs-7 col-sm-7 col-md-6 col-lg-6">
+    <%= render 'form', expense: @expense %>
+
+   
+    </div>
+    
+    <div class="col-xs-5 col-sm-5 col-md-6 col-lg-6">
+        <% if @expenses.nil? %>
+            <p>No Expense</p>
+            <% else %>
+            <p>found data</p>
+            <% end %>
+            
+
+
+    </div>
+    
+    
+    
+    </div>
+
+</div>
+    
+
+
+
+
+
+
+
