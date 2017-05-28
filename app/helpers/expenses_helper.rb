@@ -7,6 +7,19 @@ module ExpensesHelper
         end
     end 
 
+    def get_name
+        current_user
+    end
 
+    def expense_name(id)
+        if id.present?
+            name=ExpenseCategory.where(:id=>id)
+            name.expense_name
+        else
+            []
+        end
+        
+
+    end
 
 end

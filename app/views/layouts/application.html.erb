@@ -21,7 +21,9 @@
       
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 display-table-cell valign-top" id="sideMenu">
         <h1>Menu Bar</h1>
-        <ul>
+          <p class="full_name">welcome, <%= get_name.full_name %></p>
+                
+                <ul>
           <li class="link active"><a href=""><span class="fa fa-dashboard"></span><span>Dashboard</span></a></li>
           <li class="link">
           <%= link_to expenses_path  do %>
@@ -45,7 +47,7 @@
         </ul>
       </div>
       
-      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10  display-table-cell valign-top">
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10  display-table-cell valign-top application">
       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 

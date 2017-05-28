@@ -4,7 +4,7 @@
 <div class="row">
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -12,9 +12,9 @@
       <th>Amount</th>
       <th>Tax</th>
       <th>Tip</th>
-      <th>Category</th>
+      <th>Expense Type</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="2"> Action</th>
     </tr>
   </thead>
 
@@ -26,7 +26,10 @@
         <td><%= expense.amount %></td>
         <td><%= expense.tax %></td>
         <td><%= expense.tip %></td>
-        <td><%= expense.category %></td>
+  
+       <td> <%  l=ExpenseCategory.where(:id=>expense.expense_cat_id).select("expense_name").first %>
+      <%= l.expense_name %></td>
+  
         <td><%= expense.description %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>

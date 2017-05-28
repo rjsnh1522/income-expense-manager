@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.where(:user_id=>current_user.id)
 
     # return render json:@expenses
 
@@ -13,6 +13,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/1
   # GET /expenses/1.json
   def show
+    # return render json:@expense
   end
 
   # GET /expenses/new
@@ -72,6 +73,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:user_id, :name, :amount, :tax, :tip, :category, :description)
+      params.require(:expense).permit(:name, :amount, :tax, :tip, :expense_cat_id, :description).merge(user_id: current_user.id)
     end
 end

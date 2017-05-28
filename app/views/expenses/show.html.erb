@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
   <%= @expense.user_id %>
@@ -27,7 +25,8 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @expense.category %>
+    <%  l=ExpenseCategory.where(:id=>@expense.expense_cat_id).select("expense_name").first %>
+    <%= l.expense_name %>
 </p>
 
 <p>
