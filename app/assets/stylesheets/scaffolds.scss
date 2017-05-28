@@ -82,5 +82,20 @@
   .valign-top{
     vertical-align: top;
   }
-
-
+.center-form{
+  width: 30%;
+  margin: 0 auto;
+}
+.checkbox.loginCheck input[type=checkbox]{
+    margin-left: 0;
+  }
+.alert{
+  padding-bottom: 5px;
+}
+.form-header{
+  padding-bottom: 0;
+  margin-top: 0;
+}
+#error_explanation h2{
+  display: none;
+}
