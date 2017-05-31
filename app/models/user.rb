@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
    has_many :income_categories, dependent: :destroy
    has_many :incomes, through: :income_categories
+   has_many :incomes
+   has_many :expenses
 
 
 

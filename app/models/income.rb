@@ -1,6 +1,6 @@
 class Income < ApplicationRecord
     belongs_to :user
-    belongs_to :expense
+    # belongs_to :expense
 
     validates :name, :amount, presence: true
     validates :name, format: { with: /\A([a-zA-Z]|[a-zA-Z][\. ])+\z/ }

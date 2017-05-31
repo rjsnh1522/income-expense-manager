@@ -2,8 +2,10 @@
 <h1 class="headerTitle">This month savings</h1>
 <%= link_to 'New Income', new_income_path,class:'btn btn-primary btn-xs' %>
 <div class="row">
-<p id="notice"><%= notice %></p>
 
+ <% if @in_exp_data.nil? || @in_exp_data.empty? %>
+  <p>No data to show</p>
+  <% else %>
 <table class="table">
   <thead class="top-header">
     <tr>
@@ -21,12 +23,21 @@
       <th> Action</th>
     </tr>
   </thead>
-
+ 
   <tbody>
-    
-  </tbody>
+   <% @in_exp_data.each do | data | %>
+                            <tr>
+                                <td><%= data.size %></td>
+                                <td></td>
+                                <td>
+                                </td>
+                            </tr>
+                        <% end %>
+        
+         </tbody>
+  
 </table>
-
+<% end %>
 <br>
 </div>
 </div>

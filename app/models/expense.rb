@@ -2,6 +2,7 @@ class Expense < ApplicationRecord
 
     has_many :expense_categories, dependent: :destroy
     has_many :users, through: :expense_categories
+    belongs_to :users
     
     validates :name, :amount,:tax, presence: true
     validates :name, format: { with: /\A([a-zA-Z]|[a-zA-Z][\. ])+\z/ }
