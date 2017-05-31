@@ -14,7 +14,7 @@
       <th>Tip</th>
       <th>Expense Type</th>
       <th>Description</th>
-      <th colspan="2"> Action</th>
+      <th> Action</th>
     </tr>
   </thead>
 
@@ -27,13 +27,25 @@
         <td><%= expense.tax %></td>
         <td><%= expense.tip %></td>
   
-       <td> <%  l=ExpenseCategory.where(:id=>expense.expense_cat_id).select("expense_name").first %>
-      <%= l.expense_name %></td>
+       <td><%= get_expense_cat_name(expense.expense_cat_id).expense_name %></td>
   
         <td><%= expense.description %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to  expense do %>
+          <i class="fa fa-eye"></i>
+        <%end%>
+        <span>
+        <%= link_to edit_expense_path(expense) do %>
+          <i class="fa fa-pencil"></i>
+          <% end %>
+          
+        </span>
+        <span>
+         <%= link_to  expense, method: :delete, data: { confirm: 'Are you sure?' } do %>
+           <i class="fa fa-trash"></i>
+          <% end %>
+        </span>
+        </td>
       </tr>
     <% end %>
   </tbody>

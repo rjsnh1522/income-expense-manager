@@ -25,3 +25,26 @@ expense_type_list = [
 expense_type_list.each do |expense_name, expense_type|
   ExpenseCategory.create( expense_name: expense_name, expense_type: expense_type )
 end
+
+
+
+income_type_list = [
+  [ "Working a job", 'Earned Income' ],
+  [ "Owning a small business", 'Earned Income' ],
+  [ "Consulting ", 'Earned Income' ],
+  [ "Gambling", 'Earned Income' ],
+  [ "Any other activity that pays based on time/effort spent", 'Earned Income' ],
+  [ "Paper Assets", 'Portfolio Income' ],
+  [ "Real Estate", 'Portfolio Income' ],
+  [ "Any other Assets ", 'Portfolio Income' ],
+  [ "Rental Income or Note Income from Real Estate", 'Passive Income' ],
+  [ "Business Income", 'Passive Income' ],
+  [ "Creating and Selling Intellectual Property ", 'Passive Income' ],
+  [ "Affiliate or Multi-Level Marketing", 'Passive Income' ]
+ 
+  
+]
+
+income_type_list.each do |income_name, income_type|
+  IncomeCategory.create( income_name: income_name, income_type: income_type )
+end

@@ -5,6 +5,9 @@ class User < ApplicationRecord
    has_many :expense_categories, dependent: :destroy
    has_many :expenses, through: :expense_categories
 
+   has_many :income_categories, dependent: :destroy
+   has_many :incomes, through: :income_categories
+
 
 
 

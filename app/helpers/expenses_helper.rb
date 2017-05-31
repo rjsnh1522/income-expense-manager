@@ -11,15 +11,10 @@ module ExpensesHelper
         current_user
     end
 
-    def expense_name(id)
-        if id.present?
-            name=ExpenseCategory.where(:id=>id)
-            name.expense_name
-        else
-            []
-        end
-        
 
+    def get_expense_cat_name(id)
+            ExpenseCategory.where(:id=>id).select("expense_name").first
     end
+    
 
 end

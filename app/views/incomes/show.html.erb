@@ -1,0 +1,29 @@
+<p>
+  <strong>User:</strong>
+  <%= @income.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @income.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @income.amount %>
+</p>
+
+
+
+<p>
+  <strong>Category:</strong>
+    <%= get_income_cat_name(@income.income_cat_id).income_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @income.description %>
+</p>
+
+<%= link_to 'Edit', edit_income_path(@income) %> |
+<%= link_to 'Back', incomes_path %>

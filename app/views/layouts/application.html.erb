@@ -29,12 +29,15 @@
           <%= link_to expenses_path  do %>
                 <span class="fa fa-dollar"></span><span>Expense</span>
           <% end %>
-          
-          
           </li>
 
-          <li class="link"><a href=""><span class="fa fa-btc"></span><span>Savings</span></a></li>
-          <li class="link"><a href=""><span class="fa fa-inr"></span><span>Income</span></a></li>
+          <li class="link">
+          <%= link_to incomes_path  do %>
+          <span class="fa fa-inr"></span><span>Income</span>
+          <% end %>
+          </li>
+
+          <li class="link"><a href=""><span class="fa fa-btc"></span><span>Saving</span></a></li>
           <li class="link"><a href=""><span class="fa fa-file-excel-o"></span><span>CSV</span></a></li>
           <li class="link">
             <%= link_to destroy_user_session_path ,:method => :delete do %>

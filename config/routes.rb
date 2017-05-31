@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :expenses
+  
   devise_for :users
+  resources :incomes
+  resources :expenses
+  get 'savings',to: 'savings#index', as:'get_savings'
 
 devise_scope :user do
   authenticated :user do
     root 'expenses#new', as: :authenticated_root
+    
   end
 
   unauthenticated do

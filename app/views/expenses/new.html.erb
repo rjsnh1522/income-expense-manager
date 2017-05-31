@@ -4,22 +4,37 @@
     
     <div class="col-xs-7 col-sm-7 col-md-6 col-lg-6">
     <%= render 'form', expense: @expense %>
-
-   
     </div>
     
     <div class="col-xs-5 col-sm-5 col-md-6 col-lg-6">
-        <% if @expenses.nil? %>
-            <p>No Expense</p>
+        <% if @expense_data.nil? || @expense_data.empty? %>
+            <p>No expense this month</p>
             <% else %>
-            <p>found data</p>
+                <h5>Your expense list</h5>
+                         <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                    <% @expense_data.each do | expense| %>
+                            <tr>
+                                <td><%= expense.name %></td>
+                                <td><%= expense.amount %></td>
+                                <td><%= get_expense_cat_name(expense.expense_cat_id).expense_name %>
+                                </td>
+                            </tr>
+
+                        <% end %>
+                        </tbody>
+                    </table>
             <% end %>
-            
 
-
+                
     </div>
-    
-    
     
     </div>
 

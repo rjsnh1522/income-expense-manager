@@ -1,16 +1,16 @@
 <div id="addNewExpense">
-<h1 class="headerTitle">Edit Expense</h1>
+<h1 class="headerTitle">Add New  Income</h1>
     <div class="row">
     
     <div class="col-xs-7 col-sm-7 col-md-6 col-lg-6">
-<%= render 'form', expense: @expense %>
- </div>
+    <%= render 'form', income: @income %>
+    </div>
     
     <div class="col-xs-5 col-sm-5 col-md-6 col-lg-6">
-        <% if @expense_data.nil? || @expense_data.empty? %>
-            <p>No expense this month</p>
+        <% if @income_data.nil? || @income_data.empty? %>
+            <p>No Income this month</p>
             <% else %>
-                <h5>Your expense list</h5>
+                <h5>Current months Income</h5>
                          <table class="table table-striped">
                             <thead>
                             <tr>
@@ -20,26 +20,30 @@
                             </tr>
                             </thead>
                             <tbody>
-                    <% @expense_data.each do | expense| %>
+                    <% @income_data.each do | income | %>
                             <tr>
-                                <td><%= expense.name %></td>
-                                <td><%= expense.amount %></td>
-                                <td><%= get_expense_cat_name(expense.expense_cat_id).expense_name %>
+                                <td><%= income.name %></td>
+                                <td><%= income.amount %></td>
+                                <td><%= get_income_cat_name(income.income_cat_id).income_name %>
                                 </td>
                             </tr>
-
                         <% end %>
                         </tbody>
                     </table>
             <% end %>
-            
 
-
+                
     </div>
-    
-    
     
     </div>
 
 </div>
-<%= link_to 'Back', expenses_path %>
+    
+
+
+
+
+
+
+
+

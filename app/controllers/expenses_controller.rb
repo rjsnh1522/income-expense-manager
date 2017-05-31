@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /expenses
   # GET /expenses.json
@@ -19,10 +20,16 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
+    @expense_data=Expense.where(:user_id=>current_user.id)
+    @expense_data = @expense_data.get_months_data
+
+    # return render json:@expense_data
+
   end
 
   # GET /expenses/1/edit
   def edit
+        @expense_data=Expense.where(:user_id=>current_user.id)
   end
 
   # POST /expenses
@@ -32,7 +39,7 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to action: :new, notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }

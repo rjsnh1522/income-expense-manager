@@ -1,0 +1,53 @@
+<div id="allExpensePage">
+<h1 class="headerTitle">All Income</h1>
+<%= link_to 'New Income', new_income_path,class:'btn btn-primary btn-xs' %>
+<div class="row">
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+</thead>
+  <thead>
+  
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Income Type</th>
+      <th>Description</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @Incomes.each do |income| %>
+      <tr>
+        <td><%= income.user_id %></td>
+        <td><%= income.name %></td>
+        <td><%= income.amount %></td>
+       <td> <%= get_income_cat_name(income.income_cat_id).income_name %></td>
+  
+        <td><%= income.description %></td>
+        <td>
+        <%= link_to  income do %>
+          <i class="fa fa-eye"></i>
+        <%end%>
+        <span>
+        <%= link_to edit_income_path(income) do %>
+          <i class="fa fa-pencil"></i>
+          <% end %>
+          
+        </span>
+        <span>
+         <%= link_to  income, method: :delete, data: { confirm: 'Are you sure?' } do %>
+           <i class="fa fa-trash"></i>
+          <% end %>
+        </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+</div>

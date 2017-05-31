@@ -25,8 +25,7 @@
 
 <p>
   <strong>Category:</strong>
-    <%  l=ExpenseCategory.where(:id=>@expense.expense_cat_id).select("expense_name").first %>
-    <%= l.expense_name %>
+    <%= get_expense_cat_name(@expense.expense_cat_id).expense_name %>
 </p>
 
 <p>
